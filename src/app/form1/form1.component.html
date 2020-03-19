@@ -2,9 +2,10 @@
     <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" type="email"
+            <input required ngModel name="email" #firstName="ngModel" (change)="log(firstName)" type="email"
                 class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">Email is required</div>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
