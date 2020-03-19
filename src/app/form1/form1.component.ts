@@ -5,12 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './form1.component.html',
   styleUrls: ['./form1.component.css']
 })
-export class Form1Component{
+export class Form1Component {
 
-  log(x){
+  log(x) {
     console.log(x);
   }
 
- 
+
 
 }
