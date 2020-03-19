@@ -9,10 +9,12 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input required type="password" minlength="5" maxlength="10" class="form-control" ngModel name="password"
+            <input required minlength="5" type="password" maxlength="10" class="form-control" ngModel name="password"
                 #password="ngModel" (change)="log(password)" placeholder="Password">
             <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
-                <div *ngIf="password.errors.minlenght">Password Should be of 5 letters minimum.</div>
+                <div *ngIf="password.errors.required">Password is required</div>
+
+                <div *ngIf="password.errors.minlength">Password Should be of 5 letters minimum.</div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
