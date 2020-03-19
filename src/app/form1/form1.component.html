@@ -14,7 +14,8 @@
             <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
                 <div *ngIf="password.errors.required">Password is required</div>
 
-                <div *ngIf="password.errors.minlength">Password Should be of 5 letters minimum.</div>
+                <div *ngIf="password.errors.minlength">Password Should be of
+                    {{password.errors.minlength.requiredLength }} letters minimum.</div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
