@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Form1Component {
 
+
   log(x) {
     console.log(x);
+  }
+
+  submit(f) {
+    console.log(f.value.user.email);
+    console.log(f.value.user.password);
   }
 
 

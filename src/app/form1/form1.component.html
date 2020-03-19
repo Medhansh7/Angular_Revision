@@ -1,23 +1,27 @@
 <div class="container">
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input required ngModel name="email" #firstName="ngModel" (change)="log(firstName)" type="email"
-                class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">Email is required</div>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input required minlength="5" type="password" maxlength="10" class="form-control" ngModel name="password"
-                #password="ngModel" (change)="log(password)" placeholder="Password">
-            <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
-                <div *ngIf="password.errors.required">Password is required</div>
-
-                <div *ngIf="password.errors.minlength">Password Should be of
-                    {{password.errors.minlength.requiredLength }} letters minimum.</div>
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+        <div ngModelGroup="user">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input required ngModel name="email" #firstName="ngModel" (change)="log(firstName)" type="email"
+                    class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+                <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">Email is required</div>
             </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input required minlength="5" type="password" maxlength="10" class="form-control" ngModel
+                    name="password" #password="ngModel" (change)="log(password)" placeholder="Password">
+                <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required">Password is required</div>
+
+                    <div *ngIf="password.errors.minlength">Password Should be of
+                        {{password.errors.minlength.requiredLength }} letters minimum.</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
 </div>
